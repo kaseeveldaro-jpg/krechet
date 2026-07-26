@@ -1,1 +1,419 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #020406;
+    color: white;
+}
+
+
+/* 3D фон */
+
+#scene {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+}
+
+
+/* затемнение */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,212,255,0.12),
+            transparent 45%
+        ),
+        rgba(0,0,0,0.55);
+
+    z-index: -1;
+}
+
+
+/* Логотип */
+
+.logo {
+    position: absolute;
+    top: 45px;
+    width: 100%;
+    text-align: center;
+}
+
+
+.logo h1 {
+    font-size: 42px;
+    letter-spacing: 8px;
+    font-weight: 900;
+
+    color: white;
+
+    text-shadow:
+        0 0 15px rgba(0,212,255,.8);
+}
+
+
+.logo p {
+    margin-top: 10px;
+    color: #b8c7d9;
+    font-size: 16px;
+}
+
+
+
+/* Экраны */
+
+main {
+    width: 100%;
+    height: 100%;
+}
+
+
+.screen {
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+}
+
+
+.screen.active {
+
+    display: flex;
+
+    animation: fade .5s ease;
+
+}
+
+
+@keyframes fade {
+
+    from {
+        opacity: 0;
+        transform: scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+
+/* Сокол временно */
+
+.falcon-placeholder {
+
+    font-size: 150px;
+
+    filter:
+    drop-shadow(0 0 35px #00d4ff);
+
+    animation:
+    float 4s infinite ease-in-out;
+
+}
+
+
+@keyframes float {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+}
+
+
+
+
+/* Главные кнопки */
+
+.buttons {
+
+    position: absolute;
+
+    bottom: 55px;
+
+    display: flex;
+
+    gap: 15px;
+
+}
+
+
+
+.glass-btn,
+.menu-btn,
+.back-btn,
+.price,
+.pay-btn {
+
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    color:white;
+
+    background:
+    rgba(255,255,255,.08);
+
+    backdrop-filter:
+    blur(20px);
+
+
+    cursor:pointer;
+
+
+    transition:
+    .3s;
+
+
+}
+
+
+
+/* нижние кнопки */
+
+.glass-btn {
+
+    width: 150px;
+    height: 55px;
+
+    border-radius: 18px;
+
+    font-size: 17px;
+
+}
+
+
+.glass-btn:hover {
+
+    border-color:#00d4ff;
+
+    box-shadow:
+    0 0 25px #00d4ff;
+
+    transform:translateY(-5px);
+
+}
+
+
+
+/* Меню */
+
+.menu-list {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    width:100%;
+    max-width:350px;
+
+}
+
+
+
+.menu-btn {
+
+    height:60px;
+
+    border-radius:18px;
+
+    font-size:18px;
+
+}
+
+
+
+.menu-btn:hover {
+
+    border-color:#00d4ff;
+
+    box-shadow:
+    0 0 20px rgba(0,212,255,.7);
+
+    transform:translateX(8px);
+
+}
+
+
+
+.back-btn {
+
+    margin-top:25px;
+
+    padding:15px 35px;
+
+    border-radius:15px;
+
+}
+
+
+
+
+/* Карточки */
+
+.card {
+
+    width:90%;
+    max-width:350px;
+
+    padding:25px;
+
+    margin-top:20px;
+
+    border-radius:25px;
+
+
+    background:
+    rgba(255,255,255,.08);
+
+
+    backdrop-filter:
+    blur(20px);
+
+
+    border:
+    1px solid rgba(255,255,255,.15);
+
+}
+
+
+
+.card strong {
+
+    color:#00d4ff;
+
+    font-size:22px;
+
+}
+
+
+
+/* Тарифы */
+
+.prices {
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:30px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+
+
+.price {
+
+    width:80px;
+
+    height:90px;
+
+    border-radius:18px;
+
+    font-size:20px;
+
+}
+
+
+
+.price small {
+
+    display:block;
+
+    color:#00d4ff;
+
+    margin-top:5px;
+
+}
+
+
+
+.price.active {
+
+    border-color:#00d4ff;
+
+    box-shadow:
+    0 0 25px #00d4ff;
+
+}
+
+
+
+.pay-btn {
+
+    margin-top:35px;
+
+    width:280px;
+
+    height:60px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+    90deg,
+    #0077ff,
+    #00d4ff
+    );
+
+    font-size:20px;
+
+    font-weight:bold;
+
+}
+
+
+
+.pay-btn:hover {
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 35px #00d4ff;
+
+}
+
+
+
+
+h2 {
+
+    font-size:32px;
+
+    text-shadow:
+    0 0 15px #00d4ff;
+
+}
