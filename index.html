@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,108 +9,84 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- Telegram Mini App -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
 </head>
+
 
 <body>
 
-    <!-- 3D фон -->
-    <div id="scene"></div>
 
-    <!-- затемнение -->
-    <div class="overlay"></div>
+<div id="particles"></div>
 
 
-    <!-- Логотип -->
-    <header class="logo">
+<div class="app">
+
+
+    <!-- ЛОГОТИП -->
+
+    <header class="top">
+
         <h1>KRECHET</h1>
-        <p>Обходи любые блокировки</p>
+
+        <p>
+            Обходи любые блокировки
+        </p>
+
     </header>
 
 
-    <!-- Экраны приложения -->
+
+    <!-- ЭКРАНЫ -->
+
 
     <main>
 
 
-        <!-- Главный экран -->
-        <section id="home" class="screen active">
 
-            <div class="falcon-placeholder">
+        <!-- Главная -->
+
+        <section id="home" class="page active">
+
+
+            <div class="falcon">
+
                 🦅
-            </div>
-
-
-            <div class="buttons">
-
-                <button class="glass-btn" onclick="openScreen('menu')">
-                    ☰ Меню
-                </button>
-
-
-                <button class="glass-btn" onclick="openScreen('tariffs')">
-                    💎 Тарифы
-                </button>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- Меню -->
-
-        <section id="menu" class="screen">
-
-            <div class="menu-list">
-
-                <button class="menu-btn" onclick="openScreen('profile')">
-                    👤 Профиль
-                </button>
-
-
-                <button class="menu-btn" onclick="openScreen('tariffs')">
-                    💎 Тарифы
-                </button>
-
-
-                <button class="menu-btn" onclick="openScreen('bonus')">
-                    🎁 Бонусы
-                </button>
-
-
-                <button class="menu-btn" onclick="openScreen('instructions')">
-                    📖 Инструкции
-                </button>
-
-
-                <button class="menu-btn" onclick="openScreen('support')">
-                    💬 Поддержка
-                </button>
-
-
-                <button class="menu-btn" onclick="openScreen('settings')">
-                    ⚙ Настройки
-                </button>
 
             </div>
 
 
-            <button class="back-btn" onclick="openScreen('home')">
-                ← Назад
+
+            <button class="main-btn">
+
+                ⚡ Попробовать за 1₽
+
             </button>
 
+
+
+            <button class="main-btn second"
+            onclick="openPage('tariffs')">
+
+                💎 Выбрать тариф
+
+            </button>
+
+
         </section>
+
+
+
 
 
 
         <!-- Профиль -->
 
-        <section id="profile" class="screen">
+
+        <section id="profile" class="page">
+
 
             <h2>👤 Профиль</h2>
+
 
             <div class="card">
 
@@ -117,68 +94,112 @@
 
                 <p>@username</p>
 
+
                 <hr>
 
-                <p>🟢 Подписка активна</p>
 
-                <p>Действует до:</p>
+                <p>
+                    🟢 Подписка активна
+                </p>
 
-                <strong>26.08.2027</strong>
+
+                <p>
+                    Действует до:
+                </p>
+
+
+                <strong>
+                    26.08.2027
+                </strong>
+
 
             </div>
 
 
-            <button class="back-btn" onclick="openScreen('menu')">
-                ← Назад
-            </button>
+
+            <div class="card">
+
+                📱 Устройства
+
+                <br><br>
+
+                🟢 iPhone
+
+                <br>
+
+                🟢 Windows
+
+
+                <br><br>
+
+                Используется:
+
+                2 / 2
+
+
+            </div>
+
 
         </section>
+
+
+
 
 
 
 
         <!-- Тарифы -->
 
-        <section id="tariffs" class="screen">
 
-            <h2>💎 Тарифы</h2>
+        <section id="tariffs" class="page">
 
 
-            <div class="prices">
+            <h2>
+                💎 Тарифы
+            </h2>
 
-                <button class="price active">
+
+
+            <div class="tariff">
+
+
+                <button>
                     199₽
-                    <small>первый месяц</small>
                 </button>
 
 
-                <button class="price">
+                <button>
                     539₽
-                    <small>-10%</small>
+                    <small>
+                        -10%
+                    </small>
                 </button>
 
 
-                <button class="price">
+                <button>
                     999₽
-                    <small>-16%</small>
+                    <small>
+                        -16%
+                    </small>
                 </button>
 
 
-                <button class="price">
+                <button>
                     1799₽
-                    <small>-25%</small>
+                    <small>
+                        -25%
+                    </small>
                 </button>
+
 
             </div>
 
 
-            <button class="pay-btn">
-                💳 Оплатить 199₽
-            </button>
 
+            <button class="pay">
 
-            <button class="back-btn" onclick="openScreen('home')">
-                ← Назад
+                💳 Оплатить
+
             </button>
 
 
@@ -187,44 +208,247 @@
 
 
 
-        <!-- Заглушки -->
 
-        <section id="bonus" class="screen">
-            <h2>🎁 Бонусы</h2>
-            <button class="back-btn" onclick="openScreen('menu')">
-                ← Назад
+
+
+        <!-- Меню -->
+
+
+        <section id="menu" class="page">
+
+
+            <h2>
+                ☰ Меню
+            </h2>
+
+
+
+            <button onclick="openPage('profile')">
+                👤 Профиль
             </button>
+
+
+            <button onclick="openPage('tariffs')">
+                💎 Тарифы
+            </button>
+
+
+            <button onclick="openPage('bonus')">
+                🎁 Бонусы
+            </button>
+
+
+            <button onclick="openPage('instructions')">
+                📖 Инструкции
+            </button>
+
+
+            <button onclick="openPage('support')">
+                💬 Поддержка
+            </button>
+
+
+            <button onclick="openPage('settings')">
+                ⚙ Настройки
+            </button>
+
+
         </section>
 
 
-        <section id="instructions" class="screen">
-            <h2>📖 Инструкции</h2>
-            <button class="back-btn" onclick="openScreen('menu')">
-                ← Назад
-            </button>
+
+
+
+
+
+        <!-- Бонусы -->
+
+
+        <section id="bonus" class="page">
+
+            <h2>
+                🎁 Бонусы
+            </h2>
+
+
+            <div class="card">
+
+                Приглашай друзей
+
+                <br><br>
+
+                Получай бонусные дни VPN
+
+
+            </div>
+
+
         </section>
 
 
-        <section id="support" class="screen">
-            <h2>💬 Поддержка</h2>
-            <button class="back-btn" onclick="openScreen('menu')">
-                ← Назад
+
+
+
+
+
+        <!-- Инструкции -->
+
+
+        <section id="instructions" class="page">
+
+            <h2>
+                📖 Инструкции
+            </h2>
+
+
+            <button>
+                📱 iPhone
             </button>
+
+
+            <button>
+                🤖 Android
+            </button>
+
+
+            <button>
+                💻 Windows
+            </button>
+
+
+            <button>
+                🍎 macOS
+            </button>
+
+
         </section>
 
 
-        <section id="settings" class="screen">
-            <h2>⚙ Настройки</h2>
-            <button class="back-btn" onclick="openScreen('menu')">
-                ← Назад
+
+
+
+
+
+
+        <!-- Поддержка -->
+
+
+        <section id="support" class="page">
+
+
+            <h2>
+                💬 Поддержка
+            </h2>
+
+
+            <div class="card">
+
+                🟢 Мы онлайн
+
+                <br><br>
+
+                Поможем решить проблему
+
+
+            </div>
+
+
+            <button>
+
+                Написать оператору
+
             </button>
+
+
         </section>
+
+
+
+
+
+
+
+
+        <!-- Настройки -->
+
+
+        <section id="settings" class="page">
+
+
+            <h2>
+                ⚙ Настройки
+            </h2>
+
+
+            <button>
+                🔔 Уведомления
+            </button>
+
+
+            <button>
+                🌐 Язык
+            </button>
+
+
+            <button>
+                📱 Устройства
+            </button>
+
+
+        </section>
+
 
 
     </main>
 
 
-    <script src="app.js"></script>
+
+
+
+
+    <!-- НИЖНЯЯ НАВИГАЦИЯ -->
+
+
+    <nav>
+
+
+        <button onclick="openPage('profile')">
+            👤
+            <span>
+                Профиль
+            </span>
+        </button>
+
+
+
+        <button onclick="openPage('tariffs')">
+            💎
+            <span>
+                Тарифы
+            </span>
+        </button>
+
+
+
+        <button onclick="openPage('menu')">
+            ☰
+            <span>
+                Меню
+            </span>
+        </button>
+
+
+    </nav>
+
+
+
+</div>
+
+
+
+<script src="app.js"></script>
+
 
 </body>
+
 </html>
