@@ -1,28 +1,35 @@
+const tg = window.Telegram?.WebApp;
+
 
 // Telegram Mini App
 
-const tg = window.Telegram?.WebApp;
-
 if (tg) {
+
     tg.expand();
+
     tg.ready();
+
 }
 
 
-// Переключение экранов
 
-function openScreen(screenId) {
+// Переключение страниц
 
-    const screens = document.querySelectorAll(".screen");
+function openPage(pageId) {
 
-    screens.forEach(screen => {
 
-        screen.classList.remove("active");
+    const pages = document.querySelectorAll(".page");
+
+
+    pages.forEach(page => {
+
+        page.classList.remove("active");
 
     });
 
 
-    const target = document.getElementById(screenId);
+
+    const target = document.getElementById(pageId);
 
 
     if (target) {
@@ -32,9 +39,10 @@ function openScreen(screenId) {
     }
 
 
-    // вибрация Telegram при нажатии
 
-    if (tg && tg.HapticFeedback) {
+    // вибрация Telegram
+
+    if (tg?.HapticFeedback) {
 
         tg.HapticFeedback.impactOccurred("light");
 
@@ -44,44 +52,62 @@ function openScreen(screenId) {
 
 
 
-// Выбор тарифа
-
-const prices = document.querySelectorAll(".price");
-
-const payButton = document.querySelector(".pay-btn");
+// выбор тарифа
 
 
-prices.forEach(price => {
+const tariffButtons =
+document.querySelectorAll(".tariff button");
 
 
-    price.addEventListener("click", () => {
+const payButton =
+document.querySelector(".pay");
 
 
-        prices.forEach(item => {
 
-            item.classList.remove("active");
+tariffButtons.forEach(button => {
+
+
+    button.addEventListener("click", () => {
+
+
+
+        tariffButtons.forEach(btn => {
+
+            btn.style.borderColor =
+            "rgba(255,255,255,.15)";
+
+            btn.style.boxShadow =
+            "none";
 
         });
 
 
-        price.classList.add("active");
+
+        button.style.borderColor =
+        "#00d4ff";
 
 
-        let value = price.textContent
-        .replace(/\s+/g, " ")
-        .trim()
-        .split(" ")[0];
+        button.style.boxShadow =
+        "0 0 25px #00d4ff";
+
 
 
         if(payButton){
 
+            let price =
+            button.textContent
+            .replace(/\s+/g," ")
+            .trim();
+
+
             payButton.textContent =
-            "💳 Оплатить " + value;
+            "💳 Оплатить " + price;
 
         }
 
 
-        if (tg && tg.HapticFeedback){
+
+        if(tg?.HapticFeedback){
 
             tg.HapticFeedback.selectionChanged();
 
@@ -95,22 +121,47 @@ prices.forEach(price => {
 
 
 
-// Плавное появление при запуске
-
-window.addEventListener("load", () => {
 
 
-    document.body.style.opacity = "0";
+// кнопка "Попробовать за 1₽"
+
+const trialButton =
+document.querySelector(".main-btn");
 
 
-    setTimeout(() => {
+if(trialButton){
+
+    trialButton.addEventListener("click",()=>{
+
+
+        openPage("tariffs");
+
+
+    });
+
+}
+
+
+
+
+
+// эффект запуска
+
+
+window.addEventListener("load",()=>{
+
+
+    document.body.style.opacity="0";
+
+
+    setTimeout(()=>{
 
 
         document.body.style.transition =
         "opacity .8s ease";
 
 
-        document.body.style.opacity = "1";
+        document.body.style.opacity="1";
 
 
     },100);
@@ -120,8 +171,8 @@ window.addEventListener("load", () => {
 
 
 
-// Подготовка под 3D сокола
+
 
 console.log(
-"KRECHET VPN SYSTEM READY"
+"KRECHET VPN v2 loaded"
 );
