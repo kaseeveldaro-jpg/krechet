@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KRECHET VPN</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Telegram Mini App -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+</head>
+
+<body>
+
+    <!-- 3D фон -->
+    <div id="scene"></div>
+
+    <!-- затемнение -->
+    <div class="overlay"></div>
+
+
+    <!-- Логотип -->
+    <header class="logo">
+        <h1>KRECHET</h1>
+        <p>Обходи любые блокировки</p>
+    </header>
+
+
+    <!-- Экраны приложения -->
+
+    <main>
+
+
+        <!-- Главный экран -->
+        <section id="home" class="screen active">
+
+            <div class="falcon-placeholder">
+                🦅
+            </div>
+
+
+            <div class="buttons">
+
+                <button class="glass-btn" onclick="openScreen('menu')">
+                    ☰ Меню
+                </button>
+
+
+                <button class="glass-btn" onclick="openScreen('tariffs')">
+                    💎 Тарифы
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Меню -->
+
+        <section id="menu" class="screen">
+
+            <div class="menu-list">
+
+                <button class="menu-btn" onclick="openScreen('profile')">
+                    👤 Профиль
+                </button>
+
+
+                <button class="menu-btn" onclick="openScreen('tariffs')">
+                    💎 Тарифы
+                </button>
+
+
+                <button class="menu-btn" onclick="openScreen('bonus')">
+                    🎁 Бонусы
+                </button>
+
+
+                <button class="menu-btn" onclick="openScreen('instructions')">
+                    📖 Инструкции
+                </button>
+
+
+                <button class="menu-btn" onclick="openScreen('support')">
+                    💬 Поддержка
+                </button>
+
+
+                <button class="menu-btn" onclick="openScreen('settings')">
+                    ⚙ Настройки
+                </button>
+
+            </div>
+
+
+            <button class="back-btn" onclick="openScreen('home')">
+                ← Назад
+            </button>
+
+        </section>
+
+
+
+        <!-- Профиль -->
+
+        <section id="profile" class="screen">
+
+            <h2>👤 Профиль</h2>
+
+            <div class="card">
+
+                <h3>KRECHET ID</h3>
+
+                <p>@username</p>
+
+                <hr>
+
+                <p>🟢 Подписка активна</p>
+
+                <p>Действует до:</p>
+
+                <strong>26.08.2027</strong>
+
+            </div>
+
+
+            <button class="back-btn" onclick="openScreen('menu')">
+                ← Назад
+            </button>
+
+        </section>
+
+
+
+
+        <!-- Тарифы -->
+
+        <section id="tariffs" class="screen">
+
+            <h2>💎 Тарифы</h2>
+
+
+            <div class="prices">
+
+                <button class="price active">
+                    199₽
+                    <small>первый месяц</small>
+                </button>
+
+
+                <button class="price">
+                    539₽
+                    <small>-10%</small>
+                </button>
+
+
+                <button class="price">
+                    999₽
+                    <small>-16%</small>
+                </button>
+
+
+                <button class="price">
+                    1799₽
+                    <small>-25%</small>
+                </button>
+
+            </div>
+
+
+            <button class="pay-btn">
+                💳 Оплатить 199₽
+            </button>
+
+
+            <button class="back-btn" onclick="openScreen('home')">
+                ← Назад
+            </button>
+
+
+        </section>
+
+
+
+
+        <!-- Заглушки -->
+
+        <section id="bonus" class="screen">
+            <h2>🎁 Бонусы</h2>
+            <button class="back-btn" onclick="openScreen('menu')">
+                ← Назад
+            </button>
+        </section>
+
+
+        <section id="instructions" class="screen">
+            <h2>📖 Инструкции</h2>
+            <button class="back-btn" onclick="openScreen('menu')">
+                ← Назад
+            </button>
+        </section>
+
+
+        <section id="support" class="screen">
+            <h2>💬 Поддержка</h2>
+            <button class="back-btn" onclick="openScreen('menu')">
+                ← Назад
+            </button>
+        </section>
+
+
+        <section id="settings" class="screen">
+            <h2>⚙ Настройки</h2>
+            <button class="back-btn" onclick="openScreen('menu')">
+                ← Назад
+            </button>
+        </section>
+
+
+    </main>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
