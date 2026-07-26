@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0d0d0d;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+.app {
+    position: relative;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0a0a14 0%, #0d0d0d 100%);
+}
+
+/* Силуэт сокола на фоне */
+.bg-falcon {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.ibb.co/XXXXX/falcon-silhouette.png');
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    background-size: 280px;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #00d4ff;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+header p {
+    font-size: 14px;
+    color: #888;
+    margin-top: 4px;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+nav button {
+    padding: 14px 10px;
+    font-size: 14px;
+    border: 1px solid #2a2a3a;
+    border-radius: 12px;
+    background: #14141f;
+    color: #ddd;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+nav button:active {
+    background: #1e2a3a;
+    border-color: #00d4ff;
+    color: #00d4ff;
+}
+
+main {
+    background: #111118;
+    border-radius: 16px;
+    padding: 20px;
+    min-height: 300px;
+    position: relative;
+    z-index: 1;
+    border: 1px solid #1e1e2a;
+}
+
+.welcome {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.welcome h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.welcome p {
+    color: #888;
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+footer button {
+    padding: 12px 30px;
+    font-size: 14px;
+    border: 1px solid #2a2a3a;
+    border-radius: 12px;
+    background: #14141f;
+    color: #00d4ff;
+    cursor: pointer;
+}
+
+/* Стили для экранов внутри */
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+.screen h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: #00d4ff;
+}
+
+.screen p {
+    color: #bbb;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.screen .btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0;
+    font-size: 15px;
+    border: 1px solid #2a2a3a;
+    border-radius: 10px;
+    background: #1a1a2a;
+    color: #fff;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+}
+
+.screen .btn:active {
+    background: #1e2a3a;
+    border-color: #00d4ff;
+}
+
+.screen .btn.primary {
+    background: #00d4ff;
+    color: #000;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+}
+
+.screen .btn.danger {
+    border-color: #ff4444;
+    color: #ff4444;
+}
+
+.screen .back {
+    margin-top: 16px;
+    color: #888;
+    text-align: center;
+    cursor: pointer;
+}
+
+.key-box {
+    background: #0a0a14;
+    border: 1px solid #2a2a3a;
+    border-radius: 10px;
+    padding: 14px;
+    font-family: monospace;
+    font-size: 12px;
+    color: #00d4ff;
+    word-break: break-all;
+    margin: 10px 0;
+}
